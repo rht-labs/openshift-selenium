@@ -51,11 +51,6 @@ parameters:
   displayName: Name
   description: The name assigned to all objects and the resulting imagestream.
   required: true
-- name: GITHUB_WEBHOOK_SECRET
-  displayName: GitHub Webhook Secret
-  description: A secret string used to configure the GitHub webhook.
-  generate: expression
-  from: "[a-zA-Z0-9]{40}"
 - name: SOURCE_REPOSITORY_URL
   displayName: Git Repository URL
   description: The URL of the repository with your Dockerfile
@@ -74,3 +69,7 @@ parameters:
   displayName: Build debug container
   description: Build a debug container image
   value: "false"
+- name: SELENIUM_VERSION
+  displayName: Selenium Version
+  description: The version of Selenium to use
+  value: "3.141.59"

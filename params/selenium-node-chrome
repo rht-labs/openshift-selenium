@@ -1,0 +1,3 @@
+NAME=openshift3/selenium-node-chrome
+SOURCE_CONTEXT_DIR=selenium-node-chrome
+GRID_DEBUG=false

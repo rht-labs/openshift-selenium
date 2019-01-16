@@ -14,6 +14,7 @@ RUN yum install --enablerepo=rhel-7-server-optional-rpms -y xorg-x11-server-Xvfb
     xorg-x11-fonts-misc liberation-fonts
 
 COPY start-selenium-node.sh /opt/bin/
+RUN chmod 755 /opt/bin/start-selenium-node.sh
 
 # Set Xvfb screen dimensions and environment
 ENV SCREEN_WIDTH 1360

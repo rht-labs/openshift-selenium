@@ -15,12 +15,12 @@ cd openshift-selenium
 ```bash
 oc login -u <username> <openshift_console_url>
 oc new-project selenium-grid
-oc process -f openshift-templates/container_builds.yml | oc apply -f -
+oc process -f openshift-templates/selenium-builds.yml | oc apply -f -
 ```
 
 ## Deploy On OpenShift
 ```bash
 oc login -u <username> <openshift_console_url>
 oc new-project selenium-grid
-oc process -f openshift-templates/deployment.yml | oc apply -f -
+oc process -f openshift-templates/selenium-deployment.yml | oc apply -f -
 ```

@@ -1,8 +1,8 @@
 FROM registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift
 ARG SELENIUM_VERSION="3.141.59"
 
-LABEL maintainer "deven.phillips@redhat.com" \
-      description "Base container image for Selenium based on Red Hat Enterprise Linux"
+LABEL maintainer="deven.phillips@redhat.com" \
+      description="Base container image for Selenium based on Red Hat Enterprise Linux"
 
 USER root
 

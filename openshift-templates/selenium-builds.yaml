@@ -73,4 +73,4 @@ parameters:
 - name: GRID_DEBUG
   displayName: Build debug container
   description: Build a debug container image
-  value: false
+  value: "false"

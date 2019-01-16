@@ -1,3 +1,3 @@
-NAME=openshift3/selenium-node-base
+NAME=selenium-node-base
 SOURCE_CONTEXT_DIR=selenium-node-base
 GRID_DEBUG=false

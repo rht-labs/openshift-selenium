@@ -1,8 +1,8 @@
 FROM openshift3/selenium-base
 ARG SELENIUM_VERSION="3.141.59"
 
-LABEL maintainer "deven.phillips@redhat.com" \
-      description "Base node image for Selenium based on Red Hat Enterprise Linux"
+LABEL maintainer="deven.phillips@redhat.com" \
+      description="Base node image for Selenium based on Red Hat Enterprise Linux"
 
 USER root
 

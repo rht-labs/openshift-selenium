@@ -2,8 +2,8 @@ FROM openshift3/selenium-node-base:latest
 ARG SELENIUM_VERSION="3.141.59"
 ARG GRID_DEBUG="false"
 
-LABEL maintainer "deven.phillips@redhat.com" \
-      description "Selenium node with Mozilla Firefox based on Red Hat Enterprise Linux"
+LABEL maintainer="deven.phillips@redhat.com" \
+      description="Selenium node with Mozilla Firefox based on Red Hat Enterprise Linux"
 
 USER root
 

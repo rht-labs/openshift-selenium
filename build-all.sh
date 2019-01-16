@@ -8,7 +8,7 @@ export SELENIUM_VERSION="3.141.59"
 
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-for I in selenium-base selenium-node-base selenium-node-chrome selenium-node-chrome-debug selenium-node-firefox selenium-node-firefox-debug
+for I in selenium-base selenium-hub selenium-node-base selenium-node-chrome selenium-node-chrome-debug selenium-node-firefox selenium-node-firefox-debug
 do
   cd ${BASEDIR}
   TARGET_DIR=$(echo $I | sed 's@-debug@@g')

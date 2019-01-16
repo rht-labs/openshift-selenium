@@ -1,4 +1,4 @@
-FROM openshift/redhat-openjdk18-openshift:latest
+FROM openshift/redhat-openjdk18-openshift:1.4
 ARG SELENIUM_VERSION="3.141.59"
 
 LABEL maintainer="deven.phillips@redhat.com" \

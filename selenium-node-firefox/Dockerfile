@@ -30,8 +30,8 @@ RUN /opt/bin/generate_config > /opt/selenium/config.json
 #==========
 # Relaxing permissions for OpenShift and other non-sudo environments
 #==========
-RUN sudo chmod -R 777 ${HOME} \
-  && sudo chgrp -R 0 ${HOME} \
-  && sudo chmod -R g=u ${HOME}
+RUN chmod -R 777 ${HOME} \
+  && chgrp -R 0 ${HOME} \
+  && chmod -R g=u ${HOME}
 
 USER 1001

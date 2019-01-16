@@ -16,14 +16,14 @@ do
   if [[ "${I}" == *"-debug" ]]; then
     if [[ -f Dockerfile ]]; then
       ## Build Debug Container
-      docker build -t openshift/${I}:${SELENIUM_VERSION} --build-arg GRID_DEBUG="true" --build-arg SELENIUM_VERSION="${SELENIUM_VERSION}" ./
-      docker tag openshift/${I}:${SELENIUM_VERSION} openshift/${I}:latest
+      docker build -t openshift3/${I}:${SELENIUM_VERSION} --build-arg GRID_DEBUG="true" --build-arg SELENIUM_VERSION="${SELENIUM_VERSION}" ./
+      docker tag openshift3/${I}:${SELENIUM_VERSION} openshift3/${I}:latest
     fi
   else
     if [[ -f Dockerfile ]]; then
       ## Build regular container
-      docker build -t openshift/${I}:${SELENIUM_VERSION} --build-arg SELENIUM_VERSION="${SELENIUM_VERSION}" ./
-      docker tag openshift/${I}:${SELENIUM_VERSION} openshift/${I}:latest
+      docker build -t openshift3/${I}:${SELENIUM_VERSION} --build-arg SELENIUM_VERSION="${SELENIUM_VERSION}" ./
+      docker tag openshift3/${I}:${SELENIUM_VERSION} openshift3/${I}:latest
     fi
   fi
   cd ${BASEDIR}

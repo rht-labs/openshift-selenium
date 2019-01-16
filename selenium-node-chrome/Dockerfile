@@ -1,4 +1,4 @@
-FROM openshift/selenium-node-base:latest
+FROM openshift3/selenium-node-base:latest
 ARG SELENIUM_VERSION="3.141.59"
 ARG GRID_DEBUG="false"
 

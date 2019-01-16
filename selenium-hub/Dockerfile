@@ -1,4 +1,4 @@
-FROM openshift/selenium-base
+FROM openshift3/selenium-base
 ARG SELENIUM_VERSION="3.141.59"
 
 LABEL maintainer "deven.phillips@redhat.com" \

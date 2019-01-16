@@ -1,4 +1,4 @@
 NAME=selenium-base
 SOURCE_CONTEXT_DIR=selenium-base
 GRID_DEBUG=false
-BASE_IMAGE=registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift
+BASE_IMAGE=openshift/redhat-openjdk18-openshift

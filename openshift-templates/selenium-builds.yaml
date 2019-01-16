@@ -46,6 +46,10 @@ objects:
     triggers:
     - type: ConfigChange
     - type: ImageChange
+      imageChange:
+        from:
+          kind: "ImageStreamTag"
+          name: "${BASE_IMAGE}:latest"
 parameters:
 - name: NAME
   displayName: Name
@@ -73,3 +77,7 @@ parameters:
   displayName: Selenium Version
   description: The version of Selenium to use
   value: "3.141.59"
+- name: BASE_IMAGE
+  displayName: Base Image
+  description: The image which is used as the FROM entry for this build
+  required: true

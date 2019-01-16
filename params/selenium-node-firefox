@@ -1,3 +1,4 @@
 NAME=selenium-node-firefox
 SOURCE_CONTEXT_DIR=selenium-node-firefox
 GRID_DEBUG=false
+BASE_IMAGE=selenium-node-base

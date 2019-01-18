@@ -34,8 +34,6 @@ COPY generate_config \
     /opt/bin/
 RUN chmod 755 /opt/bin/start-selenium-hub.sh /opt/bin/generate_config
 
-RUN /opt/bin/generate_config > /opt/selenium/config.json
-
 USER 1001
 
 ENTRYPOINT ["/opt/bin/start-selenium-hub.sh"]

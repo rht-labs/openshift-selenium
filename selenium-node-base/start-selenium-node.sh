@@ -1,4 +1,9 @@
- ,#!/bin/bash
+ #!/bin/bash
+
+USER_ID=$(id -u)
+GROUP_ID=$(id -g)
+
+printf "ocpuser:x:%s:%s:OpenShift User:/home/ocpuser:/bin/bash\n" ${USER_ID} ${GROUP_ID} >> /etc/passwd
 
 /opt/bin/generate_config > /opt/selenium/config.json
 
@@ -36,7 +41,9 @@ fi
 
 rm -f /tmp/.X*lock
 
-xvfb-run -w 5 java ${JAVA_OPTS} -jar /opt/selenium/selenium-server-standalone.jar \
+nohup /usr/bin/Xvfb ${DISPLAY} -screen 0 ${GEOMETRY} -ac +extension RANDR &
+
+java ${JAVA_OPTS} -jar /opt/selenium/selenium-server-standalone.jar \
   -role node \
   -hub http://$HUB_PORT_4444_TCP_ADDR:$HUB_PORT_4444_TCP_PORT/grid/register \
   ${REMOTE_HOST_PARAM} \

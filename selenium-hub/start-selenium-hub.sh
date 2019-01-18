@@ -9,7 +9,7 @@ CONF=${ROOT}/config.json
 USER_ID=$(id -u)
 GROUP_ID=$(id -g)
 
-printf "ocpuser:x:%s:%s:OpenShift User:/home/ocpuser:/bin/bash" ${USER_ID} ${GROUP_ID} >> /etc/passwd
+printf "ocpuser:x:%s:%s:OpenShift User:/home/ocpuser:/bin/bash\n" ${USER_ID} ${GROUP_ID} >> /etc/passwd
 
 /opt/bin/generate_config >${CONF}
 

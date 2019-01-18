@@ -6,6 +6,8 @@ LABEL maintainer="deven.phillips@redhat.com" \
 
 EXPOSE 4444
 
+USER root
+
 # As integer, maps to "maxSession"
 ENV GRID_MAX_SESSION 5
 # In milliseconds, maps to "newSessionWaitTimeout"
@@ -33,5 +35,7 @@ COPY generate_config \
 RUN chmod 755 /opt/bin/start-selenium-hub.sh /opt/bin/generate_config
 
 RUN /opt/bin/generate_config > /opt/selenium/config.json
+
+USER 1001
 
 ENTRYPOINT ["/opt/bin/start-selenium-hub.sh"]

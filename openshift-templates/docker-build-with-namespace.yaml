@@ -26,7 +26,7 @@ objects:
     output:
       to:
         kind: ImageStreamTag
-        name: "${NAME}:latest"
+        name: "${NAME}:${SELENIUM_VERSION}"
     postCommit: {}
     resources: {}
     runPolicy: Serial
@@ -38,6 +38,11 @@ objects:
       type: Git
     strategy:
       dockerStrategy:
+        forcePull: true
+        from:
+          kind: "ImageStreamTag"
+          name: "${BASE_IMAGE}"
+          namespace: "${BASE_IMAGE_NAMESPACE}"
         buildArgs:
         - name: "SELENIUM_VERSION"
           value: "${SELENIUM_VERSION}"
@@ -49,7 +54,7 @@ objects:
       imageChange:
         from:
           kind: "ImageStreamTag"
-          name: "${BASE_IMAGE}:latest"
+          name: "${BASE_IMAGE}"
 parameters:
 - name: NAME
   displayName: Name
@@ -81,3 +86,8 @@ parameters:
   displayName: Base Image
   description: The image which is used as the FROM entry for this build
   required: true
+- name: BASE_IMAGE_NAMESPACE
+  displayName: Base Image
+  description: The namespace in which to find the image which is used as the FROM entry for this build
+  required: true
+  value: openshift

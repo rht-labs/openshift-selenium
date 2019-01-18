@@ -1,4 +1,4 @@
 NAME=selenium-hub
 SOURCE_CONTEXT_DIR=selenium-base
 GRID_DEBUG=false
-BASE_IMAGE=selenium-hub
+BASE_IMAGE=selenium-base

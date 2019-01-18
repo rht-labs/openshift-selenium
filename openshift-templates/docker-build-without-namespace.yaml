@@ -1,0 +1,87 @@
+---
+kind: Template
+apiVersion: v1
+metadata:
+  name: "${NAME}"
+  annotations:
+    openshift.io/display-name: Selenium Container Image Builds
+objects:
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    labels:
+      build: "${NAME}"
+      app: "${NAME}"
+    name: "${NAME}"
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    labels:
+      build: "${NAME}"
+      app: "${NAME}"
+      type: "image"
+    name: "${NAME}"
+  spec:
+    nodeSelector:
+    output:
+      to:
+        kind: ImageStreamTag
+        name: "${NAME}:${SELENIUM_VERSION}"
+    postCommit: {}
+    resources: {}
+    runPolicy: Serial
+    source:
+      contextDir: "${SOURCE_CONTEXT_DIR}"
+      git:
+        ref: "${SOURCE_REPOSITORY_REF}"
+        uri: "${SOURCE_REPOSITORY_URL}"
+      type: Git
+    strategy:
+      dockerStrategy:
+        forcePull: true
+        from:
+          kind: "ImageStreamTag"
+          name: "${BASE_IMAGE}:${SELENIUM_VERSION}"
+        buildArgs:
+        - name: "SELENIUM_VERSION"
+          value: "${SELENIUM_VERSION}"
+        - name: "GRID_DEBUG"
+          value: "${GRID_DEBUG}"
+    triggers:
+    - type: ConfigChange
+    - type: ImageChange
+      imageChange:
+        from:
+          kind: "ImageStreamTag"
+          name: "${BASE_IMAGE}:${SELENIUM_VERSION}"
+parameters:
+- name: NAME
+  displayName: Name
+  description: The name assigned to all objects and the resulting imagestream.
+  required: true
+- name: SOURCE_REPOSITORY_URL
+  displayName: Git Repository URL
+  description: The URL of the repository with your Dockerfile
+  required: true
+  value: https://github.com/rht-labs/openshift-selenium.git
+- name: SOURCE_REPOSITORY_REF
+  displayName: Git Reference
+  description: Set this to a branch name, tag or other ref of your repository if you
+    are not using the default (master) branch.
+  value: master
+- name: SOURCE_CONTEXT_DIR
+  displayName: Git Context Directory
+  description: Set this to the directory where the build information is (e.g. Dockerfile)
+    if not using the root directory
+- name: GRID_DEBUG
+  displayName: Build debug container
+  description: Build a debug container image
+  value: "false"
+- name: SELENIUM_VERSION
+  displayName: Selenium Version
+  description: The version of Selenium to use
+  value: "3.141.59"
+- name: BASE_IMAGE
+  displayName: Base Image
+  description: The image which is used as the FROM entry for this build
+  required: true

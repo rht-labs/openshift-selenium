@@ -1,4 +1,4 @@
 NAME=selenium-node-firefox-debug
-SOURCE_CONTEXT_DIR=selenium-node-firefox-debug
+SOURCE_CONTEXT_DIR=selenium-node-firefox
 GRID_DEBUG=true
 BASE_IMAGE=selenium-node-base

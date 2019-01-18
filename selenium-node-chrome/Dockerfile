@@ -20,6 +20,13 @@ RUN CD_VERSION=$(if [ ${CHROME_DRIVER_VERSION:-latest} = "latest" ]; then echo $
   && chmod 755 /opt/selenium/chromedriver-$CD_VERSION \
   && ln -fs /opt/selenium/chromedriver-$CD_VERSION /usr/bin/chromedriver
 
+#=================================
+# Chrome Launch Script Wrapper
+#=================================
+COPY wrap_chrome_binary /opt/bin/wrap_chrome_binary
+RUN chmod 755 /opt/bin/wrap_chrome_binary
+RUN /opt/bin/wrap_chrome_binary
+
 COPY generate_config /opt/bin/generate_config
 RUN chmod 755 /opt/bin/generate_config
 

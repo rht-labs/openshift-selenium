@@ -25,5 +25,7 @@ RUN wget https://repo.maven.apache.org/maven2/org/seleniumhq/selenium/selenium-j
     wget https://repo.maven.apache.org/maven2/org/seleniumhq/selenium/selenium-safari-driver/${SELENIUM_VERSION}/selenium-safari-driver-3.141.59.jar && \
     wget https://repo.maven.apache.org/maven2/org/seleniumhq/selenium/selenium-support/${SELENIUM_VERSION}/selenium-support-3.141.59.jar && \
     wget https://repo.maven.apache.org/maven2/org/seleniumhq/selenium/jetty-repacked/9.4.12.v20180830/jetty-repacked-9.4.12.v20180830.jar
+RUN chown root:root /opt/selenium
+RUN chmod 1775 /opt/selenium
 
 USER 1001

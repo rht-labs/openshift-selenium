@@ -7,12 +7,12 @@ LABEL maintainer="deven.phillips@redhat.com" \
 
 USER root
 
-RUN wget -q -O /tmp/chrome.rpm https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm && yum install -y /tmp/chrome.rpm && rm -f /tmp/chrome.rpm
+RUN curl -L -s -o /tmp/chrome.rpm https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm && yum install -y /tmp/chrome.rpm && rm -f /tmp/chrome.rpm
 
 ARG CHROME_DRIVER_VERSION="latest"
-RUN CD_VERSION=$(if [ ${CHROME_DRIVER_VERSION:-latest} = "latest" ]; then echo $(wget -qO- https://chromedriver.storage.googleapis.com/LATEST_RELEASE); else echo $CHROME_DRIVER_VERSION; fi) \
+RUN CD_VERSION=$(if [ ${CHROME_DRIVER_VERSION:-latest} = "latest" ]; then echo $(curl -L -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE); else echo $CHROME_DRIVER_VERSION; fi) \
   && echo "Using chromedriver version: "$CD_VERSION \
-  && wget --no-verbose -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/$CD_VERSION/chromedriver_linux64.zip \
+  && curl -L -s -o /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/$CD_VERSION/chromedriver_linux64.zip \
   && rm -rf /opt/selenium/chromedriver \
   && unzip /tmp/chromedriver_linux64.zip -d /opt/selenium \
   && rm /tmp/chromedriver_linux64.zip \

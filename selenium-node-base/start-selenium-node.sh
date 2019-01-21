@@ -63,5 +63,6 @@ java ${JAVA_OPTS} -jar /opt/selenium/lib/selenium-server-standalone.jar \
   -role node \
   -hub http://$HUB_PORT_4444_TCP_ADDR:$HUB_PORT_4444_TCP_PORT/grid/register \
   ${REMOTE_HOST_PARAM} \
+  -host 0.0.0.0 \
   -nodeConfig /opt/selenium/config.json \
   ${SE_OPTS}

@@ -41,6 +41,8 @@ fi
 
 rm -f /tmp/.X*lock
 
+export GEOMETRY=$(printf "%sx%sx%s" ${SCREEN_WIDTH} ${SCREEN_HEIGHT} ${SCREEN_DEPTH})
+
 nohup /usr/bin/Xvfb ${DISPLAY} -screen 0 ${GEOMETRY} -ac +extension RANDR &
 
 java ${JAVA_OPTS} -jar /opt/selenium/lib/selenium-server-standalone.jar \

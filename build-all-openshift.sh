@@ -18,7 +18,7 @@ if [[ "${IS_CONFIRMED}X" == "yX" ]]; then
     fi
   done
 
-  oc process -f openshift-templates/selenium-deployment.yaml --param="SELENIUM_NAMESPACE=test-deven-selenium" -o yaml | oc apply -f -
+  oc process -f openshift-templates/selenium-deployment.yaml -o yaml | oc apply -f -
 else
   echo "Aborting"
 fi

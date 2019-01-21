@@ -3,6 +3,10 @@
 FIREFOX_VERSION=$( firefox -version | cut -d " " -f 3 )
 DRIVER_LOGLEVEL=${DRIVER_LOGLEVEL:-info}
 
+if [[ "${GRID_DEBUG}X" == "X" ]]; then
+  export GRID_DEBUG="false"
+fi
+
 cat <<_EOF
 {
   "capabilities": [

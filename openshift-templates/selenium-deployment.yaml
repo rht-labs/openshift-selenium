@@ -152,12 +152,12 @@ objects:
     generation: 1
     labels:
       app: "${NAME}"
-    name: selenium-node-chrome-deb
+    name: selenium-node-chrome-debug
   spec:
     replicas: 1
     selector:
       app: "${NAME}"
-      deploymentconfig: selenium-node-chrome-deb
+      deploymentconfig: selenium-node-chrome-debug
     strategy:
       activeDeadlineSeconds: 21600
       resources: {}
@@ -173,7 +173,7 @@ objects:
         creationTimestamp: null
         labels:
           app: "${NAME}"
-          deploymentconfig: selenium-node-chrome-deb
+          deploymentconfig: selenium-node-chrome-debug
       spec:
         containers:
         - env:
@@ -182,7 +182,7 @@ objects:
           - name: HUB_HOST
             value: selenium-hub
           imagePullPolicy: Always
-          name: selenium-node-chrome-deb
+          name: selenium-node-chrome-debug
           ports:
           - containerPort: 8080
             protocol: TCP
@@ -204,7 +204,7 @@ objects:
     - imageChangeParams:
         automatic: true
         containerNames:
-        - selenium-node-chrome-deb
+        - selenium-node-chrome-debug
         from:
           kind: ImageStreamTag
           name: selenium-node-chrome-debug:${SELENIUM_VERSION}
@@ -296,12 +296,12 @@ objects:
     generation: 1
     labels:
       app: "${NAME}"
-    name: selenium-node-firefox-de
+    name: selenium-node-firefox-debug
   spec:
     replicas: 1
     selector:
       app: "${NAME}"
-      deploymentconfig: selenium-node-firefox-de
+      deploymentconfig: selenium-node-firefox-debug
     strategy:
       activeDeadlineSeconds: 21600
       resources: {}
@@ -317,7 +317,7 @@ objects:
         creationTimestamp: null
         labels:
           app: "${NAME}"
-          deploymentconfig: selenium-node-firefox-de
+          deploymentconfig: selenium-node-firefox-debug
       spec:
         containers:
         - env:
@@ -327,7 +327,7 @@ objects:
             value: "4444"
           image: selenium-node-firefox-debug
           imagePullPolicy: Always
-          name: selenium-node-firefox-de
+          name: selenium-node-firefox-debug
           ports:
           - containerPort: 8080
             protocol: TCP
@@ -349,7 +349,7 @@ objects:
     - imageChangeParams:
         automatic: true
         containerNames:
-        - selenium-node-firefox-de
+        - selenium-node-firefox-debug
         from:
           kind: ImageStreamTag
           name: selenium-node-firefox-debug:${SELENIUM_VERSION}

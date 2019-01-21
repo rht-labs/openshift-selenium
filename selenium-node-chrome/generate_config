@@ -2,6 +2,10 @@
 
 CHROME_VERSION=$(/usr/bin/google-chrome -version | awk '{ print $3 }')
 
+if [[ "${GRID_DEBUG}X" == "X" ]]; then
+  export GRID_DEBUG="false"
+fi
+
 cat <<_EOF
 {
   "capabilities": [

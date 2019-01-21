@@ -136,7 +136,6 @@ objects:
         from:
           kind: ImageStreamTag
           name: selenium-node-chrome:${SELENIUM_VERSION}
-          namespace: ${SELENIUM_NAMESPACE}
       type: ImageChange
     - type: ConfigChange
   status:
@@ -417,8 +416,4 @@ parameters:
   displayName: Selenium Version
   description: The version of the Selenium container images to be used
   value: 3.141.59
-  required: true
-- name: SELENIUM_NAMESPACE
-  displayName: Target Namespace
-  description: The namespace on which Selenium grid is to be deployed
   required: true

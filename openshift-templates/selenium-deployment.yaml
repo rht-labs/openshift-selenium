@@ -81,12 +81,12 @@ objects:
     generation: 1
     labels:
       app: "${NAME}"
-    name: selenium-node-chrome
+    name: node-chrome
   spec:
     replicas: 1
     selector:
       app: "${NAME}"
-      deploymentconfig: selenium-node-chrome
+      deploymentconfig: node-chrome
     strategy:
       activeDeadlineSeconds: 21600
       resources: {}
@@ -102,7 +102,7 @@ objects:
         creationTimestamp: null
         labels:
           app: "${NAME}"
-          deploymentconfig: selenium-node-chrome
+          deploymentconfig: node-chrome
       spec:
         containers:
         - env:
@@ -111,7 +111,7 @@ objects:
           - name: HUB_PORT_PARAM
             value: "4444"
           imagePullPolicy: Always
-          name: selenium-node-chrome
+          name: node-chrome
           ports:
           - containerPort: 8080
             protocol: TCP
@@ -132,10 +132,10 @@ objects:
     - imageChangeParams:
         automatic: true
         containerNames:
-        - selenium-node-chrome
+        - node-chrome
         from:
           kind: ImageStreamTag
-          name: selenium-node-chrome:${SELENIUM_VERSION}
+          name: node-chrome:${SELENIUM_VERSION}
       type: ImageChange
     - type: ConfigChange
   status:
@@ -152,12 +152,12 @@ objects:
     generation: 1
     labels:
       app: "${NAME}"
-    name: selenium-node-chrome-deb
+    name: node-chrome-debug
   spec:
     replicas: 1
     selector:
       app: "${NAME}"
-      deploymentconfig: selenium-node-chrome-deb
+      deploymentconfig: node-chrome-debug
     strategy:
       activeDeadlineSeconds: 21600
       resources: {}
@@ -173,7 +173,7 @@ objects:
         creationTimestamp: null
         labels:
           app: "${NAME}"
-          deploymentconfig: selenium-node-chrome-deb
+          deploymentconfig: node-chrome-debug
       spec:
         containers:
         - env:
@@ -182,7 +182,7 @@ objects:
           - name: HUB_HOST
             value: selenium-hub
           imagePullPolicy: Always
-          name: selenium-node-chrome-deb
+          name: node-chrome-debug
           ports:
           - containerPort: 8080
             protocol: TCP
@@ -204,10 +204,10 @@ objects:
     - imageChangeParams:
         automatic: true
         containerNames:
-        - selenium-node-chrome-deb
+        - node-chrome-debug
         from:
           kind: ImageStreamTag
-          name: selenium-node-chrome-debug:${SELENIUM_VERSION}
+          name: node-chrome-debug:${SELENIUM_VERSION}
           namespace: ${SELENIUM_NAMESPACE}
       type: ImageChange
   status:
@@ -224,12 +224,12 @@ objects:
     generation: 1
     labels:
       app: "${NAME}"
-    name: selenium-node-firefox
+    name: node-firefox
   spec:
     replicas: 1
     selector:
       app: "${NAME}"
-      deploymentconfig: selenium-node-firefox
+      deploymentconfig: node-firefox
     strategy:
       activeDeadlineSeconds: 21600
       resources: {}
@@ -245,7 +245,7 @@ objects:
         creationTimestamp: null
         labels:
           app: "${NAME}"
-          deploymentconfig: selenium-node-firefox
+          deploymentconfig: node-firefox
       spec:
         containers:
         - env:
@@ -254,7 +254,7 @@ objects:
           - name: HUB_PORT_PARAM
             value: "4444"
           imagePullPolicy: Always
-          name: selenium-node-firefox
+          name: node-firefox
           ports:
           - containerPort: 8080
             protocol: TCP
@@ -275,10 +275,10 @@ objects:
     - imageChangeParams:
         automatic: true
         containerNames:
-        - selenium-node-firefox
+        - node-firefox
         from:
           kind: ImageStreamTag
-          name: "selenium-node-firefox:${SELENIUM_VERSION}"
+          name: "node-firefox:${SELENIUM_VERSION}"
           namespace: ${SELENIUM_NAMESPACE}
       type: ImageChange
     - type: ConfigChange
@@ -296,12 +296,12 @@ objects:
     generation: 1
     labels:
       app: "${NAME}"
-    name: selenium-node-firefox-de
+    name: node-firefox-debug
   spec:
     replicas: 1
     selector:
       app: "${NAME}"
-      deploymentconfig: selenium-node-firefox-de
+      deploymentconfig: node-firefox-debug
     strategy:
       activeDeadlineSeconds: 21600
       resources: {}
@@ -317,7 +317,7 @@ objects:
         creationTimestamp: null
         labels:
           app: "${NAME}"
-          deploymentconfig: selenium-node-firefox-de
+          deploymentconfig: node-firefox-debug
       spec:
         containers:
         - env:
@@ -325,9 +325,9 @@ objects:
             value: selenium-hub
           - name: HUB_PORT_PARAM
             value: "4444"
-          image: selenium-node-firefox-debug
+          image: node-firefox-debug
           imagePullPolicy: Always
-          name: selenium-node-firefox-de
+          name: node-firefox-debug
           ports:
           - containerPort: 8080
             protocol: TCP
@@ -349,10 +349,10 @@ objects:
     - imageChangeParams:
         automatic: true
         containerNames:
-        - selenium-node-firefox-de
+        - node-firefox-debug
         from:
           kind: ImageStreamTag
-          name: selenium-node-firefox-debug:${SELENIUM_VERSION}
+          name: node-firefox-debug:${SELENIUM_VERSION}
           namespace: ${SELENIUM_NAMESPACE}
       type: ImageChange
   status:

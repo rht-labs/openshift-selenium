@@ -11,16 +11,9 @@ cd openshift-selenium
 ./build-all.sh
 ```
 
-## Build On OpenShift
+## Build & Deploy On OpenShift
 ```bash
 oc login -u <username> <openshift_console_url>
 oc new-project selenium-grid
-oc process -f openshift-templates/selenium-builds.yml | oc apply -f -
-```
-
-## Deploy On OpenShift
-```bash
-oc login -u <username> <openshift_console_url>
-oc new-project selenium-grid
-oc process -f openshift-templates/selenium-deployment.yml | oc apply -f -
+./build-all-openshift.sh
 ```

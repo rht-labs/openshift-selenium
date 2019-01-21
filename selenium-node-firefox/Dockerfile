@@ -25,8 +25,6 @@ RUN GK_VERSION=$(if [ ${GECKODRIVER_VERSION:-latest} = "latest" ]; then echo "0.
   && chmod 755 /opt/geckodriver-$GK_VERSION \
   && ln -fs /opt/geckodriver-$GK_VERSION /usr/bin/geckodriver
 
-RUN /opt/bin/generate_config > /opt/selenium/config.json
-
 #==========
 # Relaxing permissions for OpenShift and other non-sudo environments
 #==========

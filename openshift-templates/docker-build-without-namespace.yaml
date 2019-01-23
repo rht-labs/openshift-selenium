@@ -52,6 +52,7 @@ objects:
       type: Git
     strategy:
       dockerStrategy:
+        dockerfilePath: ${DOCKERFILE_NAME}
         forcePull: true
         from:
           kind: "ImageStreamTag"
@@ -98,4 +99,9 @@ parameters:
 - name: BASE_IMAGE
   displayName: Base Image
   description: The image which is used as the FROM entry for this build
+  required: true
+- name: DOCKERFILE_NAME
+  displayName: Dockerfile name
+  description: Allows for specifying an alternal Dockerfile name
+  value: Dockerfile
   required: true

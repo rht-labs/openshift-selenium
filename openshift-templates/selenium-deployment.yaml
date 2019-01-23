@@ -522,10 +522,10 @@ parameters:
 - name: LIVENESS_DELAY
   displayName: Liveness Probe Delay
   description: The amount of time to delay before attempting the Liveness probe
-  value: 15
+  value: "15"
   required: true
 - name: READINESS_DELAY
   displayName: Readiness Probe Delay
   description: The amount of time to delay before attempting the Readiness probe
-  value: 15
+  value: "15"
   required: true

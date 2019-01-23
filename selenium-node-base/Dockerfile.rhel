@@ -20,7 +20,7 @@ LABEL maintainer="deven.phillips@redhat.com" \
 
 USER root
 
-RUN yum install -y xorg-x11-server-Xvfb fontconfig-devel fontconfig freetype-devel freetype \
+RUN yum install --enablerepo=rhel-7-server-optional-rpms -y xorg-x11-server-Xvfb fontconfig-devel fontconfig freetype-devel freetype \
     liberation-fonts-common liberation-mono-fonts liberation-narrow-fonts liberation-sans-fonts liberation-serif-fonts \
     xorg-x11-fonts-100dpi xorg-x11-fonts-75dpi xorg-x11-fonts-ISO8859-1-100dpi xorg-x11-fonts-ISO8859-1-75dpi xorg-x11-fonts-ISO8859-14-100dpi \
     xorg-x11-fonts-ISO8859-14-75dpi xorg-x11-fonts-ISO8859-15-75dpi xorg-x11-fonts-ISO8859-2-100dpi xorg-x11-fonts-ISO8859-2-75dpi \

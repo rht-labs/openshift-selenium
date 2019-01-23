@@ -25,7 +25,7 @@ RUN chown 666 /etc/passwd
 #==========
 # Selenium
 #==========
-RUN yum install -y java-1.8.0-openjdk-devel && mkdir -p /opt/selenium/lib
+RUN yum install -y java-1.8.0-openjdk-devel unzip && mkdir -p /opt/selenium/lib
 RUN chown root:root /opt/selenium && chmod 1775 /opt/selenium
 WORKDIR /opt/selenium/lib
 RUN curl -L -o /opt/selenium/lib/selenium-server-standalone.jar https://selenium-release.storage.googleapis.com/$(echo ${SELENIUM_VERSION} | awk -F"." '{print $1"."$2}')/selenium-server-standalone-${SELENIUM_VERSION}.jar

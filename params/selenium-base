@@ -1,5 +1,6 @@
 NAME=selenium-base
 SOURCE_CONTEXT_DIR=selenium-base
 GRID_DEBUG=false
-BASE_IMAGE=redhat-openjdk18-openshift:1.4
-BASE_IMAGE_NAMESPACE=openshift
+BASE_IMAGE=centos:centos7
+BASE_IMAGE_NAMESPACE=
+BASE_IMAGE_TYPE=DockerImage

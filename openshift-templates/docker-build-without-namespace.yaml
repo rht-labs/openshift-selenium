@@ -52,7 +52,6 @@ objects:
       type: Git
     strategy:
       dockerStrategy:
-        dockerfilePath: ${DOCKERFILE_NAME}
         forcePull: true
         from:
           kind: "ImageStreamTag"
@@ -62,6 +61,7 @@ objects:
           value: "${SELENIUM_VERSION}"
         - name: "GRID_DEBUG"
           value: "${GRID_DEBUG}"
+        dockerfilePath: "${DOCKERFILE_NAME}"
     triggers:
     - type: ConfigChange
     - type: ImageChange
@@ -103,5 +103,4 @@ parameters:
 - name: DOCKERFILE_NAME
   displayName: Dockerfile name
   description: Allows for specifying an alternal Dockerfile name
-  value: Dockerfile
-  required: true
+  value: "Dockerfile"

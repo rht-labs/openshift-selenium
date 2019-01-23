@@ -52,7 +52,6 @@ objects:
       type: Git
     strategy:
       dockerStrategy:
-        dockerfilePath: ${DOCKERFILE_NAME}
         forcePull: true
         from:
           kind: "ImageStreamTag"
@@ -63,6 +62,7 @@ objects:
           value: "${SELENIUM_VERSION}"
         - name: "GRID_DEBUG"
           value: "${GRID_DEBUG}"
+        dockerfilePath: "${DOCKERFILE_NAME}"
     triggers:
     - type: ConfigChange
     - type: ImageChange
@@ -104,10 +104,12 @@ parameters:
 - name: BASE_IMAGE_NAMESPACE
   displayName: Base Image
   description: The namespace in which to find the image which is used as the FROM entry for this build
-  required: true
   value: openshift
+- name: BASE_IMAGE_TYPE
+  displayName: Base Image type
+  description: How the base image should be resolved (ImageStreamTag/ImageStreamImage/DockerImage/None)
+  value: ImageStreamTag
 - name: DOCKERFILE_NAME
   displayName: Dockerfile name
   description: Allows for specifying an alternal Dockerfile name
-  value: Dockerfile
-  required: true
+  value: "Dockerfile"

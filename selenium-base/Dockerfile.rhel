@@ -20,7 +20,7 @@ LABEL maintainer="deven.phillips@redhat.com" \
 
 USER root
 
-RUN chown 666 /etc/passwd
+RUN chmod 666 /etc/passwd && chown root:root /etc/passwd
 
 #==========
 # Selenium
